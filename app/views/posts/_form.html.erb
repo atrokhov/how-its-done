@@ -1,0 +1,36 @@
+<%= form_with model: @post, local: true do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category_id, "Category" %></br>
+    <%= form.collection_select(:category_id, Category.order(:name), :id, :name, {:prompt => "Choose category"}, {:id => "category_selection"}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subcategory_id, "Subcategory" %></br>
+    <%= form.grouped_collection_select(:subcategory_id, Category.order(:name), :subcategories, :name, :id, :name, {:prompt => "Choose subcategory"}, {:id => "subcategory_selection"}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name, "Name" %></br>
+    <%= form.text_field :name, id: :item_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body, "Text" %></br>
+    <%= form.text_area :body, id: :item_body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

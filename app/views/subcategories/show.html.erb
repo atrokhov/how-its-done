@@ -1,0 +1,14 @@
+<h1><%= @subcategory.name %></h1>
+
+<p>
+  <strong>Category:</strong> </br>
+  <%= @subcategory.category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong> </br>
+  <%= @subcategory.description %>
+</p>
+
+<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
+<%= link_to 'Back', subcategories_path %>

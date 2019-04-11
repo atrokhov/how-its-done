@@ -1,0 +1,31 @@
+<%= form_with model: @subcategory, local: true do |form| %>
+  <% if @subcategory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subcategory.errors.count, "error") %> prohibited this subcategory from being saved:</h2>
+      <ul>
+        <% @subcategory.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category_id, "Category" %></br>
+    <%= form.collection_select(:category_id, Category.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name, "Name" %></br>
+    <%= form.text_field :name, id: :item_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, "Description" %></br>
+    <%= form.text_area :description, id: :item_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

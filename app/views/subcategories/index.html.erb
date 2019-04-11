@@ -1,0 +1,24 @@
+<h1>All subcategories</h1>
+<p>
+    <%= link_to 'New subcategory', new_subcategory_path %>
+</p>
+
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+    </tr>
+
+    <% @subcategories.each do |subcategory| %>
+        <tr>
+            <td><%= subcategory.category.name %></td>
+            <td><%= subcategory.name %></td>
+            <td><%= subcategory.description %></td>
+            <td><%= link_to 'Show', subcategory_path(subcategory) %></td>
+            <td><%= link_to 'Edit', edit_subcategory_path(subcategory) %></td>
+            <td><%= link_to 'Destroy', subcategory_path(subcategory), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+</table>
