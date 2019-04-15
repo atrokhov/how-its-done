@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap";
+
+body{
+    font-family: "Times New Roman", Times, serif;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.post-section{
+    margin: 1%;
+}
+
+.comment-section{
+    margin: 1%;
+}
+
+.link-section{
+    margin: 1%;
+}
+
+.form-control{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 100%;
+    position: center;
+}
+
+.update-user{
+    margin: 1%;
+}
+
+.update-user .form-control{
+    width: 50%;
+}
+
+.register, .sign-in, .password-form, .confirmation-form{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 390px;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5%;
+}
+
+.register h2, .sign-in h2, .password-form h2, .confirmation-form h2{
+    text-shadow: 2px 2px 5px grey;
+    text-align: center;
+}
+
+.user{
+    margin: 1%
+}

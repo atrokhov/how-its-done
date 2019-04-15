@@ -1,0 +1,15 @@
+<h1 style="margin: 1%">All posts of <%= @user.username %></h1>
+
+<% @user.post.each do |post| %>
+  <div class="card" style="margin: 1% 10% 1% 1%">
+    <h5 class="card-header"><%= @user.username %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= post.name %></h5>
+      <%= post.body.html_safe %>
+      <%= link_to 'Show', post_path(post), class: "btn btn-primary" %>
+    </div>
+    <div class="card-footer text-muted">
+        <%= post.created_at %>
+    </div>
+  </div>
+<% end %>

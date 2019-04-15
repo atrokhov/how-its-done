@@ -1,7 +1,9 @@
-<%= form_for [@post, @post.comments.build] do |f| %>
+<%= form_for [@post, @post.comment.build] do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <div>
-        Comment: <%= f.text_area :body %>
+        Your comment:
+        <%= f.text_area :body, :class => "tinymce", :rows => 10, :cols => 10 %>
+        <%= tinymce %>
     </div>
     
     <%= f.submit %>

@@ -27,10 +27,12 @@
 
   <div class="field">
     <%= form.label :body, "Text" %></br>
-    <%= form.text_area :body, id: :item_body %>
+    <%= form.text_area :body, :class => "tinymce", :rows => 20, :cols => 10, id: :item_body %>
+    <%= tinymce %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+  </br>
 <% end %>
