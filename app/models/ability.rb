@@ -30,7 +30,9 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     can :show, :all
     if user.present?
-      can :manage, Post, user_id: user.id
+      can :manage, Post
+      can :manage, Like
+      can :manage, Dislike
     end
   end
 end

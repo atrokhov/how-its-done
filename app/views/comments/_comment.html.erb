@@ -1,6 +1,11 @@
-<div>
-    <h4><strong><%= comment.user.username %></strong> wrote <%= comment.created_at %></h4>
-
-    <%= comment.body %>
-
+<div class="media">
+  <% if comment.user.avatar.attached? %>
+    <%= image_tag comment.user.avatar.variant(resize: '75x75!') %>
+  <% else %>
+    <img src="https://image.flaticon.com/icons/svg/747/747376.svg" height="75px" width="75px" ></img>
+  <% end %>
+  <div class="media-body">
+    <h5 class="mt-0"><%= link_to comment.user.username, user_path(comment.user) %>  wrote <%= time_ago_in_words(comment.created_at) %> ago</h5>
+    <p><%= comment.body.html_safe %></p>
+  </div>
 </div>

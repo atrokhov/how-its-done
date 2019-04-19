@@ -8,6 +8,8 @@
 
 category = Category.create(name: 'Lorem', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec felis vel lectus porta posuere. Ut condimentum lacus sit amet tempor auctor. Nulla elit augue, tempor sit amet congue nec, dignissim id lorem. Cras blandit magna eu mattis vestibulum. Donec et dictum ligula. Nunc et facilisis est. In sollicitudin ac mi sit amet gravida. Sed euismod nibh dui, id euismod orci interdum in. Sed ullamcorper ex enim, vitae cursus nibh sollicitudin in. Proin lacinia ex id dolor pulvinar condimentum. Duis eget semper lacus. Phasellus eu sollicitudin nisi. Cras rutrum, sem vitae congue egestas, diam nibh pharetra dolor, nec ultrices lacus sapien eu velit. Nunc ornare orci scelerisque ex laoreet, accumsan malesuada sapien fermentum. Sed non cursus nulla. Nullam consectetur lacus sit amet dui placerat, a efficitur ligula placerat.')
 subcategory = Subcategory.create(name: 'Lorem', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', category_id: category.id)
-user = User.create(username: 'user_cool', email: "admin@project.com", password: "qwerty", password_confirmation: "qwerty")
-post = Post.create(name: 'Lorem ipsum', body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec felis vel lectus porta posuere. Ut condimentum lacus sit amet tempor auctor. Nulla elit augue, tempor sit amet congue nec, dignissim id lorem.', user_id: user.id, category_id: category.id, subcategory_id: subcategory.id)
-comment = Comment.create(user_id: user.id, body: 'It`s first part', post_id: post.id)
+user = User.create!(username: 'user_cool', email: "admin@project.com", password: "qwerty", password_confirmation: "qwerty")
+
+(1..100).each do |i|
+  Post.create!(name: 'Lorem ipsum #{i}', body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec felis vel lectus porta posuere. Ut condimentum lacus sit amet tempor auctor. Nulla elit augue, tempor sit amet congue nec, dignissim id lorem.', user_id: user.id, category_id: category.id, subcategory_id: subcategory.id)
+end

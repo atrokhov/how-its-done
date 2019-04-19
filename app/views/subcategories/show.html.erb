@@ -1,14 +1,16 @@
-<h1><%= @subcategory.name %></h1>
+<h1 style="margin: 1%"><%= @subcategory.name %></h1>
 
-<p>
-  <strong>Category:</strong> </br>
-  <%= @subcategory.category.name %>
-</p>
-
-<p>
-  <strong>Description:</strong> </br>
-  <%= @subcategory.description %>
-</p>
-
-<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
-<%= link_to 'Back', subcategories_path %>
+<% @posts.each do |post| %>
+  <div class="card" style="margin: 1%">
+    <h5 class="card-header"><%= post.user.username %></h5>
+      <div class="card-body">
+        <h4 class="card-title"><%= post.name %></h4>
+        <%= post.body.html_safe %>
+        <p style="margin-top: 1%"><%= link_to 'Show', post_path(post), class: "btn btn-primary" %><p>
+      </div>
+      <div class="card-footer text-muted">
+          <%= post.created_at.strftime("%B, %d %Y") %>
+      </div>
+  </div>
+<% end %>
+<%= paginate @posts %>

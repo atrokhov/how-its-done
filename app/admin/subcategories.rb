@@ -12,4 +12,9 @@ ActiveAdmin.register Subcategory do
 #   permitted
 # end
 
+  controller do
+    def permitted_params
+      params.permit subcategory: [:name, :description]
+    end
+  end
 end

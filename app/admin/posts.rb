@@ -11,5 +11,9 @@ ActiveAdmin.register Post do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+  controller do
+    def permitted_params
+      params.permit post: [:name, :body, :category_id, :subcategory_id, :user_id]
+    end
+  end
 end

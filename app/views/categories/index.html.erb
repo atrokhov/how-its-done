@@ -1,22 +1,10 @@
-<h1>All categories</h1>
-<p>
-    <%= link_to 'New category', new_category_path %>
-</p>
+<h1 style="margin: 1%">All categories</h1>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th colspan="3"></th>
-    </tr>
+<% @categories.each do |category| %>
+  <div class="categories">
+    <p style="margin: 1%"><%= link_to category.name, category_path(category) %></p>
+    <p style="margin: 1%"><%= category.description %></p>
+  </div>
+<% end %>
 
-    <% @categories.each do |category| %>
-        <tr>
-            <td><%= category.name %></td>
-            <td><%= category.description %></td>
-            <td><%= link_to 'Show', category_path(category) %></td>
-            <td><%= link_to 'Edit', edit_category_path(category) %></td>
-            <td><%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
-</table>
+

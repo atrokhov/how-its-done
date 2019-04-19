@@ -12,4 +12,9 @@ ActiveAdmin.register Category do
 #   permitted
 # end
 
+  controller do
+    def permitted_params
+      params.permit category: [:name, :description]
+    end
+  end
 end

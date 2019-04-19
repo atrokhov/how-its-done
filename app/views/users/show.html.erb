@@ -6,10 +6,10 @@
     <div class="card-body">
       <h5 class="card-title"><%= post.name %></h5>
       <%= post.body.html_safe %>
-      <%= link_to 'Show', post_path(post), class: "btn btn-primary" %>
+      <p style="margin-top: 1%"><%= link_to 'Show', post_path(post), class: "btn btn-primary" %></p>
     </div>
     <div class="card-footer text-muted">
-        <%= post.created_at %>
+        <%= post.created_at.strftime("%B, %d %Y") %>
     </div>
   </div>
 <% end %>

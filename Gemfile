@@ -43,6 +43,11 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.5'
 gem 'bootstrap', '~> 4.3.1'
 gem 'tinymce-rails'
+gem 'pg'
+gem 'mini_racer'
+gem 'gravatar_image_tag'
+gem "mini_magick"
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

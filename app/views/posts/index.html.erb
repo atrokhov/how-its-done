@@ -1,7 +1,9 @@
 <h1 style="margin: 1%">All posts</h1>
-<p style="margin: 1%">
-    <%= link_to 'New post', new_post_path, class: "btn btn-primary" %>
-</p>
+<% if user_signed_in? %>
+  <p style="margin: 1%">
+      <%= link_to 'New post', new_post_path, class: "btn btn-primary" %>
+  </p>
+<% end %>
 
 <% @posts.each do |post| %>
   <div class="card" style="margin: 1%">
@@ -12,7 +14,9 @@
       <p style="margin-top: 1%"><%= link_to 'Show', post_path(post), class: "btn btn-primary" %><p>
     </div>
     <div class="card-footer text-muted">
-        <%= post.created_at %>
+        <%= post.created_at.strftime("%B, %d %Y") %>
     </div>
   </div>
 <% end %>
+
+<%= paginate @posts %>

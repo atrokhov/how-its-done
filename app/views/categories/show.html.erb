@@ -1,9 +1,20 @@
-<h1><%= @category.name %></h1>
-
-<p>
-  <strong>Description:</strong> </br>
-  <%= @category.description %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<% @category.subcategories.each do |subcategory| %>
+  <div class="subcategories">
+    <p style="margin: 1%"><%= link_to subcategory.name, subcategory_path(subcategory) %></p>
+    <p style="margin: 1%"><%= subcategory.description %></p>
+  </div>
+<% end %>
+<% @posts.each do |post| %>
+  <div class="card" style="margin: 1%">
+    <h5 class="card-header"><%= post.user.username %></h5>
+      <div class="card-body">
+        <h4 class="card-title"><%= post.name %></h4>
+        <%= post.body.html_safe %>
+        <p style="margin-top: 1%"><%= link_to 'Show', post_path(post), class: "btn btn-primary" %><p>
+      </div>
+      <div class="card-footer text-muted">
+          <%= post.created_at.strftime("%B, %d %Y") %>
+      </div>
+  </div>
+<% end %>
+<%= paginate @posts %>
